@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'admin_navigation.html' %}
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table class="table">
+    <tr>
+        <th>Room No</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Contact</th>
+        <th>Booking Date</th>
+        <th>Day's</th>
+        <th>Price</th>
+        <th>Status</th>
+    </tr>
+    {% for i in data %}
+    <tr>
+        <td>{{i.room_no}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.dob}}</td>
+        <td>{{i.gender}}</td>
+        <td>{{i.contact1}}<br>{{i.contact2}}</td>
+        <td>{{i.booking_date}}</td>
+        <td>{{i.total_days}}</td>
+        <td>{{i.price}}</td>
+        <td><a href="{% url 'change_status' i.id %}" class="btn btn-primary btn-sm">{{i.status}}</a> | <a href="{% url 'delete_booking' i.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
